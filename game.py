@@ -9,6 +9,10 @@ def game():
 	count = 0
 	while True:
 		guess = int(input("Your guess?"))
+		# to check if the guess is in the range
+		while guess > 100 or guess < 0:
+			guess= int(input("You are out of range. Try again!"))
+
 		count +=1
 		if guess > secret_number:
 			print("Your guess is too high, try again.")
