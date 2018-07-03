@@ -8,7 +8,12 @@ def game():
 	print(name + " I'm thinking of a number between 1 and 100. Try to guess my number.")
 	count = 0
 	while True:
-		guess = int(input("Your guess?"))
+		# to check that the guess is really an integer
+		try:
+			guess = int(input("Your guess?"))
+		except ValueError:
+			print("This is not a number.")
+			continue
 		# to check if the guess is in the range
 		while guess > 100 or guess < 0:
 			guess= int(input("You are out of range. Try again!"))
