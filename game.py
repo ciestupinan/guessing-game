@@ -3,6 +3,13 @@
 # Put your code here
 import random
 def game():
+	"""A number-guessing game.
+
+		The code generates a random number between 0-100, and asks the user to guess the number. 
+		The user must input an integer in range, and the code checks both conditions 
+		The game gives a hint about if the number was too high or too low, 
+		and ends when the user guesses the secret number
+	"""
 	name = input("Howdy, what's your name?")
 	secret_number = random.randint(0,101)
 	print(name + " I'm thinking of a number between 1 and 100. Try to guess my number.")
@@ -24,7 +31,8 @@ def game():
 		elif guess < secret_number:
 			print("Your guess is too low, try again.")
 		else:
-			print("Well done, " + name + "! You found my number in", count, "tries!")
+			print("Well done,", name, "! You found my number in", count, "tries!")
+			# print("Well done, " + name + "! You found my number in" + str(count) + "tries!")
 			break
 
 
