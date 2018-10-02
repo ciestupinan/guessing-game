@@ -1,39 +1,53 @@
-"""A number-guessing game."""
 
-# Put your code here
+
 import random
-def game():
-	"""A number-guessing game.
 
-		The code generates a random number between 0-100, and asks the user to guess the number. 
-		The user must input an integer in range, and the code checks both conditions 
-		The game gives a hint about if the number was too high or too low, 
-		and ends when the user guesses the secret number
-	"""
-	name = input("Howdy, what's your name?")
-	secret_number = random.randint(0,101)
-	print(name + " I'm thinking of a number between 1 and 100. Try to guess my number.")
+name = input("Howdy, what's your name?")
+print("{}, I\'m thinking of a number between 1 and 100".format(name))
+print("Try to guess my number: ")
+
+# number = random.randint(1, 100)
+#guess = int(input("Your guess? "))
+# count = 0
+
+# while number != guess:
+
+# 	count += 1
+
+# 	if number > guess:
+# 		print("You guess is too low, try again.")
+# 	else: 
+# 		print("You guess is too high, try again.")
+# 	guess = int(input("Your guess? "))
+
+
+# print("Well done, {}! You found my number in {} tries!".format(name, count))
+
+
+
+guess = 102
+answer = "y"
+num_guess = 0
+
+
+while answer == "y":
+	number = random.randint(1, 100)
 	count = 0
-	while True:
-		# to check that the guess is really an integer
-		try:
-			guess = int(input("Your guess?"))
-		except ValueError:
-			print("This is not a number.")
-			continue
-		# to check if the guess is in the range
-		while guess > 100 or guess < 0:
-			guess= int(input("You are out of range. Try again!"))
+	while number != guess: # and answer == "y":
+		guess = int(input("Your guess? "))
+		count += 1
 
-		count +=1
-		if guess > secret_number:
-			print("Your guess is too high, try again.")
-		elif guess < secret_number:
-			print("Your guess is too low, try again.")
+		if number > guess:
+			print("You guess is too low, try again.")
+		elif number < guess:
+			print("You guess is too high, try again")
 		else:
-			print("Well done,", name, "! You found my number in", count, "tries!")
-			# print("Well done, " + name + "! You found my number in" + str(count) + "tries!")
-			break
+			if num_guess > count or num_guess == 0:
+				num_guess = count
+			print("Well done, {}! You found my number in {} tries! Your best score is {}".format(name, count, num_guess))
+			answer = input("Would you like to play again? y/n: ")
 
 
-game()
+		
+
+
